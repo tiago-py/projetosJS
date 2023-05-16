@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .counter-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #ccc;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .count {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  button:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  .reset {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #ccc;
+    color: #333;
+    cursor: pointer;
+  }
