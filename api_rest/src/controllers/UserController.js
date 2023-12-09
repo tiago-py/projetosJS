@@ -6,6 +6,7 @@ class UserController {
       const novoUsuario = await User.create(req.body);
       return res.json(novoUsuario);
     } catch (e) {
+      console.log(e);
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
       });
@@ -53,12 +54,7 @@ class UserController {
   // delete
   async delete(req, res) {
     try {
-      if (!req.params.id) {
-        return res.status(400).json({
-          errors: ['Id não enviado!'],
-        });
-      }
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
           errors: ['Usuário inexistente!'],
