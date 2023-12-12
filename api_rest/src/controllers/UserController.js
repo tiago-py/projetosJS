@@ -6,7 +6,6 @@ class UserController {
       const novoUsuario = await User.create(req.body);
       return res.json(novoUsuario);
     } catch (e) {
-      console.log(e);
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
       });
@@ -16,7 +15,7 @@ class UserController {
   // index
   async index(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({ attributes: ['id', 'email', 'nome'] });
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -26,8 +25,9 @@ class UserController {
   // show
   async show(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
-      return res.json(user);
+      const user = await User.findByPk(req.userId);
+      const { id, nome, email } = user;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.json(null);
     }
@@ -54,7 +54,12 @@ class UserController {
   // delete
   async delete(req, res) {
     try {
-      const user = await User.findByPk(req.userId);
+      if (!req.params.id) {
+        return res.status(400).json({
+          errors: ['Id não enviado!'],
+        });
+      }
+      const user = await User.findByPk(req.params.id);
       if (!user) {
         return res.status(400).json({
           errors: ['Usuário inexistente!'],

@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon ./src/server.js",
+    "lint": ".eslintrc.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.2.2",
+    "multer": "^1.4.5-lts.1",
     "sequelize": "^6.35.1"
   }
 }

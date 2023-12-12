@@ -1,0 +1,14 @@
+{
+  "name": "botdiscord",
+  "version": "1.0.0",
+  "description": "Bot para discord feito por Tiago Braga",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tiago-py",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.13.0"
+  }
+}
